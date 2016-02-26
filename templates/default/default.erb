@@ -24,7 +24,7 @@ INSTANCE=<%= node['varnish']['instance'] %>
 DAEMON_OPTS="-a <%= node['varnish']['listen_address'] %>:<%= node['varnish']['listen_port'] %> \
               -f <%= node['varnish']['dir'] %>/<%= node['varnish']['vcl_conf'] %> \
               -T <%= node['varnish']['admin_listen_address'] %>:<%= node['varnish']['admin_listen_port'] %> \
-              <%- if ['3.0','4.0'].include?(node['varnish']['version']) %>-u <%= node['varnish']['user'] %> -g <%= node['varnish']['group'] %> \<% end %>
+              <%- if ['3.0','4.0'].include?(node['varnish']['version']) %>-u <%= node['varnish']['user'] %> -g <%= node['varnish']['group'] %><% end %>\
               -t <%= node['varnish']['ttl'] %> \
              <%- if node['platform_family'] == 'debian' %>
               -n $INSTANCE \
